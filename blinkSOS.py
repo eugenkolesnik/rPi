@@ -43,7 +43,11 @@ def blinkSOS():
     blinkS()
     return;
 
-while True:
-    blinkSOS()
-    time.sleep(gap)
+try:
+    while True:
+        blinkSOS()
+        time.sleep(gap)
 
+except KeyboardInterrupt:
+    GPIO.output(7, 0)
+    GPIO.cleanup()
